@@ -60,43 +60,26 @@
                     <!-- Resources Dropdown -->
                     <div class="relative" @mouseenter="activeDropdown = 'resources'"
                         @mouseleave="activeDropdown = null">
-                        <a href="/resources"
-                            class="nav-link relative py-2 text-[var(--color-foreground)] hover:text-[var(--color-accent)] transition-colors duration-300 font-medium flex items-center space-x-1">
+                        <x-desktop.nav-link href="home">
                             <span>Resources</span>
                             <i class="fas fa-chevron-down text-xs transform transition-transform duration-200"
-                                :class="activeDropdown === 'resources' ? 'rotate-180' : ''"></i>
+                                :class="activeDropdown === 'blog' ? 'rotate-180' : ''"></i>
                             <div class="nav-indicator"></div>
-                        </a>
+                        </x-desktop.nav-link>
 
                         <!-- Dropdown Menu -->
                         <div x-show="activeDropdown === 'resources'" x-transition:enter="dropdown-enter-active"
                             x-transition:enter-start="dropdown-enter" x-transition:leave="dropdown-leave-active"
                             class="absolute top-full left-0 mt-2 w-64 bg-[var(--color-background)] border border-[var(--color-zinc-200)] dark:border-[var(--color-zinc-700)] rounded-xl shadow-xl overflow-hidden">
                             <div class="py-2">
-                                <a href="/resources/guides"
-                                    class="flex items-center px-4 py-3 text-[var(--color-foreground)] hover:bg-[var(--color-zinc-100)] dark:hover:bg-[var(--color-zinc-800)] transition-colors">
-                                    <i class="fas fa-book w-5 text-[var(--color-accent)]"></i>
-                                    <div class="ml-3">
-                                        <div class="font-medium">Writing Guides</div>
-                                        <div class="text-sm text-[var(--color-zinc-500)]">Learn to write better</div>
-                                    </div>
-                                </a>
-                                <a href="/resources/templates"
-                                    class="flex items-center px-4 py-3 text-[var(--color-foreground)] hover:bg-[var(--color-zinc-100)] dark:hover:bg-[var(--color-zinc-800)] transition-colors">
-                                    <i class="fas fa-file-alt w-5 text-[var(--color-accent)]"></i>
-                                    <div class="ml-3">
-                                        <div class="font-medium">Templates</div>
-                                        <div class="text-sm text-[var(--color-zinc-500)]">Ready-to-use formats</div>
-                                    </div>
-                                </a>
-                                <a href="/resources/tools"
-                                    class="flex items-center px-4 py-3 text-[var(--color-foreground)] hover:bg-[var(--color-zinc-100)] dark:hover:bg-[var(--color-zinc-800)] transition-colors">
-                                    <i class="fas fa-tools w-5 text-[var(--color-accent)]"></i>
-                                    <div class="ml-3">
-                                        <div class="font-medium">Tools</div>
-                                        <div class="text-sm text-[var(--color-zinc-500)]">Helpful utilities</div>
-                                    </div>
-                                </a>
+                                <x-desktop.dropdown-menu-item icon="book-text" href="home" title="Writing Guides" desc="Learn to write better">
+                                </x-desktop.dropdown-menu-item>
+
+                                <x-desktop.dropdown-menu-item icon="file-text" href="home" title="Templates" desc="Ready-to-use formats">
+                                </x-desktop.dropdown-menu-item>
+
+                                <x-desktop.dropdown-menu-item icon="pen-tool" href="authors" title="Authors" desc="Our authors">
+                                </x-desktop.dropdown-menu-item>
                             </div>
                         </div>
                     </div>

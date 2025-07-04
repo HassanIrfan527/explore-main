@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('components.layouts.app')
+@section('title', 'Explore | Modern Blogging Platform')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Explore - Information at your doorstep</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    @vite(['resources/css/app.css', 'resources/css/navbar.css', 'resources/js/app.js'])
-
-    @livewireStyles
-    @alpineStyles
-</head>
-
-<body class="font-primary bg-background text-foreground min-h-screen">
-    @include('partials.navbar')
-
-<!-- Demo Content -->
+@section('content')
+    <!-- Demo Content -->
     <div class="pt-20 px-4">
         <div class="container mx-auto">
             <div class="space-y-8">
@@ -79,9 +63,4 @@
             </div>
         </div>
     </div>
-    @script('resources/js/app.js')
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
-</body>
-
-</html>
+@endsection
