@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Authors;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -8,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/authors', function(){
+    return view('authors');
+})->name('authors');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
