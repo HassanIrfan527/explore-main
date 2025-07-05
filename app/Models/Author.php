@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'user_id',
         'author_bio',
@@ -19,7 +21,6 @@ class Author extends Model
         'author_telegram',
         'author_whatsapp',
         'author_discord',
-        'author_other'
     ];
 
     public function user()
