@@ -76,3 +76,7 @@ textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-[var(--color-accent)] ring-offset-2 ring-offset-[var(--color-background)];
 }
+
+
+@import './navbar.css';
+@import './authors.css';

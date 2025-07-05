@@ -16,7 +16,9 @@
                 <a href="{{ route('home') }}" class="group flex items-center space-x-2">
                     <div
                         class="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-                        <i class="fas fa-blog text-white text-sm"></i>
+
+                        {{-- App logo --}}
+                        <x-app-logo></x-app-logo>
                     </div>
                     <span
                         class="text-xl font-bold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors">BlogPlatform</span>
@@ -34,8 +36,10 @@
                     <div class="relative" @mouseenter="activeDropdown = 'blog'" @mouseleave="activeDropdown = null">
                         <x-desktop.nav-link href="home">
                             <span>Blog</span>
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-200"
-                                :class="activeDropdown === 'blog' ? 'rotate-180' : ''"></i>
+
+                            <flux:icon.custom.chevron class="inline-block transform transition-transform duration-200"
+                                ::class="activeDropdown == 'blog' ? 'rotate-0' : 'rotate-180'" />
+
                             <div class="nav-indicator"></div>
                         </x-desktop.nav-link>
 
@@ -46,11 +50,13 @@
                             <div class="py-2">
                                 <x-desktop.dropdown-menu-item icon="clock" href="home" title="Latest Posts"
                                     desc="Recent Articles"></x-desktop.dropdown-menu-item>
-                                <x-desktop.dropdown-menu-item icon="folder" href="home" title="Categories" desc="Browse by topic">
+                                <x-desktop.dropdown-menu-item icon="folder" href="home" title="Categories"
+                                    desc="Browse by topic">
                                 </x-desktop.dropdown-menu-item>
 
 
-                                <x-desktop.dropdown-menu-item icon="star" href="home" title="Featured" desc="Editor's picks">
+                                <x-desktop.dropdown-menu-item icon="star" href="home" title="Featured"
+                                    desc="Editor's picks">
                                 </x-desktop.dropdown-menu-item>
 
                             </div>
@@ -62,8 +68,8 @@
                         @mouseleave="activeDropdown = null">
                         <x-desktop.nav-link href="home">
                             <span>Resources</span>
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-200"
-                                :class="activeDropdown === 'blog' ? 'rotate-180' : ''"></i>
+                            <flux:icon.custom.chevron class="inline-block transform transition-transform duration-200"
+                                ::class="activeDropdown == 'resources' ? 'rotate-0' : 'rotate-180'" />
                             <div class="nav-indicator"></div>
                         </x-desktop.nav-link>
 
@@ -72,13 +78,16 @@
                             x-transition:enter-start="dropdown-enter" x-transition:leave="dropdown-leave-active"
                             class="absolute top-full left-0 mt-2 w-64 bg-[var(--color-background)] border border-[var(--color-zinc-200)] dark:border-[var(--color-zinc-700)] rounded-xl shadow-xl overflow-hidden">
                             <div class="py-2">
-                                <x-desktop.dropdown-menu-item icon="book-text" href="home" title="Writing Guides" desc="Learn to write better">
+                                <x-desktop.dropdown-menu-item icon="book-text" href="home" title="Writing Guides"
+                                    desc="Learn to write better">
                                 </x-desktop.dropdown-menu-item>
 
-                                <x-desktop.dropdown-menu-item icon="file-text" href="home" title="Templates" desc="Ready-to-use formats">
+                                <x-desktop.dropdown-menu-item icon="file-text" href="home" title="Templates"
+                                    desc="Ready-to-use formats">
                                 </x-desktop.dropdown-menu-item>
 
-                                <x-desktop.dropdown-menu-item icon="pen-tool" href="authors" title="Authors" desc="Our authors">
+                                <x-desktop.dropdown-menu-item icon="pen-tool" href="authors" title="Authors"
+                                    desc="Our authors">
                                 </x-desktop.dropdown-menu-item>
                             </div>
                         </div>
