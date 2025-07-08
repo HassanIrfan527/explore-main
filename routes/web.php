@@ -14,6 +14,9 @@ Route::get('/authors', function(){
     return view('authors');
 })->name('authors');
 
+Route::get('/blogs', function () {
+    return view('blogs');
+})->name('blogs');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

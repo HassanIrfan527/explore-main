@@ -15,7 +15,7 @@
 
 <body class="font-primary bg-background text-foreground min-h-screen">
 
-    @include('partials.navbar')
+    @include('partials.navbar1')
 
     @yield('content')
 
