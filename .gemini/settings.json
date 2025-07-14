@@ -1,0 +1,21 @@
+{
+    "contextFileName": "GEMINI.md",
+    "bugCommand": {
+        "urlTemplate": "https://github.com/HassanIrfan527/explore-main/issues/new"
+    },
+    "fileFiltering": {
+        "respectGitIgnore": true,
+        "enableRecursiveFileSearch": false
+    },
+    "mcpServers": {
+        "context7": {
+            "command": "npx",
+            "args": ["-y", "@upstash/context7-mcp"]
+        },
+        "github": {
+            "command": "npx",
+            "args": ["-y", "@modelcontextprotocol/server-github"],
+            "timeout": 30000
+        }
+    }
+}
