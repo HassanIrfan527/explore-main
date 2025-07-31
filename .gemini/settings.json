@@ -1,7 +1,11 @@
 {
+
     "contextFileName": "GEMINI.md",
     "bugCommand": {
         "urlTemplate": "https://github.com/HassanIrfan527/explore-main/issues/new"
+    },
+    "authorization": {
+        "type": "api-key"
     },
     "fileFiltering": {
         "respectGitIgnore": true,

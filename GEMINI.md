@@ -45,19 +45,33 @@ This document provides essential context for AI models interacting with this pro
 ## 5. Key Files & Entrypoints
 
 * **Main Entrypoint(s):** `public/index.php` for web requests, and `artisan` for command-line tasks.
-* **Configuration:** `.env` (not present, but `.env.example` is), and files within the `config/` directory.
-* **CI/CD Pipeline:** There is no CI/CD pipeline configuration file present in the project.
+* **Configuration:** `.env`, and files within the `config/` directory.
 
 ## 6. Development & Testing Workflow
 
-* **Local Development Environment:** The project uses Laravel Sail, a Docker-based development environment. The `docker-compose.yml` file defines the services used: `laravel.test` (the application container), `mysql`, and `redis`. To run the project locally, one would typically use the `./vendor/bin/sail up` command. The `composer.json` also includes a `dev` script that runs the server, queue, logs, and vite using `concurrently`.
-* **Testing:** Tests are run using Pest, a testing framework for PHP. The `composer.json` file includes a `test` script that runs the tests using `php artisan test`. New code should be accompanied by corresponding unit or feature tests in the `tests/` directory.
-* **CI/CD Process:** Not defined.
+### Running Application Locally
+The project uses Laravel Sail, a Docker-based development environment. The `docker-compose.yml` file defines the services used: `laravel.test` (the application container), `mysql`, and `redis`. To run the project locally, you have to use the `./vendor/bin/sail up` command.
+* **Running Sail**: Use the command `./vendor/bin/sail up` to run the docker container locally.
+* **Running Vite**: First, you have to go to `sail shell` and then apply `npm run dev` to run the vite server and bundle the assets. Also, don't ever try to run `npm run dev` without sail, as all the packages and dependencies for npm are inside my docker container.
+* **Running Migrations and other commands related to artisan**: Always use `sail` instead of `php` when it comes to executing an `artisan` command. Such as, `sail artisan migrate`.
+* **Testing:** Tests are run using Pest, a testing framework for PHP. The `composer.json` file includes a `test` script that runs the tests using `sail artisan test`. New code should be accompanied by corresponding unit or feature tests in the `tests/` directory.
 
 ## 7. Specific Instructions for AI Collaboration
 
-* **Contribution Guidelines:** There is no `CONTRIBUTING.md` file.
-* **Infrastructure (IaC):** There is no Infrastructure as Code directory.
 * **Security:** Be mindful of security best practices. Do not hardcode secrets or keys. Sanitize user input to prevent XSS and SQL injection attacks.
 * **Dependencies:** When adding a new dependency, use `composer require` for PHP packages and `npm install` for JavaScript packages.
-* **Commit Messages:** Do not commit or stage changes ever on your own, unless the user orders himself. If user asks to commit a bunch of files, use the following rules: `Feature/Bug Fix/ (UI/Backend) Enhancement/Optimization: [A very brief explanation of the code] -AI`. Make sure to follow this rule to commit and always make a new branch and then commit in that branch. Do not ever try to commit in the main branch.
+* **Commit Messages:** Do not commit or stage changes ever on your own, unless the user orders himself. If user asks to commit a bunch of files, use the following rules: `Feature/Bug Fix/ (UI/Backend) Enhancement/Optimization: [A very short explanation of the code] -AI`. Make sure to follow this rule to commit and always make a new branch and then commit in that branch. Do not ever try to commit in the main branch.
+
+### Project Documentation and Context
+
+For further context and project's documentation, see the files inside the `docs/` directory.
+I have put all my **next plans** for this project and my database structure in the docs folder. So, to find more context about this project, see the files in that folder.
+
+
+## 8. Frontend Design Instructions
+
+**Icons:** Always use Flux's Lucide icons. And to install a specific icon, run the following command:
+`php artisan flux:icon ICON_NAME (According to Lucide's official icon names)`
+**Components and Partials:** Always use reusable components or partials for the design. Like, if you have to mae a navbar, make the `nav-link` component or the `App-logo` component to use it again and again without having to hardcode.
+**Flux:** Always use Flux's components in design.
+Use Livewire + Blade + Flux icon + Flux components + Reusable components in the design of the website.
