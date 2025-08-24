@@ -1,5 +1,4 @@
 {
-
     "contextFileName": "GEMINI.md",
     "bugCommand": {
         "urlTemplate": "https://github.com/HassanIrfan527/explore-main/issues/new"
@@ -20,6 +19,10 @@
             "command": "npx",
             "args": ["-y", "@modelcontextprotocol/server-github"],
             "timeout": 30000
+        },
+        "laravel-boost": {
+            "command": "php",
+            "args": ["./artisan", "boost:mcp"]
         }
     }
 }
