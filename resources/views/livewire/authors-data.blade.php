@@ -1,4 +1,4 @@
-<div class="m-10" x-data="">
+<div class="m-10">
 
     <!-- Page Header -->
     <div class="page-header py-16 px-4">
@@ -39,19 +39,12 @@
             </div>
         </div>
     </div>
-{{-- <div x-data="{ authors: @entangle('authors') }">
-    <template x-for="author in authors" :key="author.user.id">
-        <div>
-            <span class="text-black" x-text="author.username"></span>
-        </div>
-    </template>
-</div> --}}
 
     <!-- Authors Grid -->
-    {{-- <div class="py-16 px-4">
+    <div class="py-16 px-4">
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <template x-for="author in $wire.authors" :key="author.user.id">
+                @foreach ($authors as $author)
                     <div class="author-card card-hover rounded-2xl p-8 relative overflow-hidden">
                         <!-- Background Pattern -->
                         <div class="absolute top-0 right-0 w-32 h-32 opacity-5">
@@ -64,7 +57,7 @@
                         <div class="relative mb-6">
                             <div class="gradient-border w-20 h-20 mx-auto">
                                 <div class="gradient-border-inner w-full h-full">
-                                    <img :src="author.user.profile_pic" :alt="author.name"
+                                    <img src="{{ $author->user->profile_pic }}" alt="{{ $author->user->name }}"
                                         class="w-full h-full object-cover rounded-full">
                                 </div>
                             </div>
@@ -76,63 +69,43 @@
 
                         <!-- Author Info -->
                         <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-[var(--color-foreground)] mb-2" x-text="author.name">
+                            <h3 class="text-xl font-bold text-[var(--color-foreground)] mb-2">
+                                {{ $author->user->name }}
                             </h3>
-                            <p class="text-[var(--color-accent)] font-medium text-sm mb-3" x-text="author.role"></p>
-                            <p class="text-[var(--color-zinc-500)] text-sm leading-relaxed" x-text="author.bio"></p>
-                        </div>
-
-                        <!-- Stats -->
-                        <div class="flex justify-center space-x-6 mb-6">
-                            <div class="text-center">
-                                <div class="stats-counter rounded-lg px-4 py-2">
-                                    <div class="text-lg font-bold text-[var(--color-foreground)]" x-text="author.posts">
-                                    </div>
-                                    <div class="text-xs text-[var(--color-zinc-500)]">Posts</div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <div class="stats-counter rounded-lg px-4 py-2">
-                                    <div class="text-lg font-bold text-[var(--color-foreground)]"
-                                        x-text="author.followers"></div>
-                                    <div class="text-xs text-[var(--color-zinc-500)]">Followers</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Expertise Tags -->
-                        <div class="flex flex-wrap justify-center gap-2 mb-6">
-                            <template x-for="skill in author.expertise" :key="skill">
-                                <span
-                                    class="px-3 py-1 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)] rounded-full text-xs font-medium"
-                                    x-text="skill"></span>
-                            </template>
+                            <p class="text-[var(--color-accent)] font-medium text-sm mb-3">{{ $author->author_bio }}
+                            </p>
                         </div>
 
                         <!-- Social Links -->
                         <div class="flex justify-center space-x-4">
-                            <a :href="'https://twitter.com/' + author.social.twitter.replace('@', '')" target="_blank"
-                                class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200">
-                                <flux:icon.twitter
-                                    class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
-                            </a>
-                            <a :href="'https://github.com/' + author.social.github" target="_blank"
-                                class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
-                                <flux:icon.github
-                                    class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
-                            </a>
-                            <a :href="'https://linkedin.com/in/' + author.social.linkedin" target="_blank"
-                                class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200">
-                                <flux:icon.linkedin
-                                    class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
-
-                            </a>
-                            <a :href="author.social.website" target="_blank"
-                                class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-[var(--color-teal-100)] dark:hover:bg-[var(--color-teal-900)] transition-all duration-200">
-                                <flux:icon.globe
-                                    class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
-
-                            </a>
+                            @if ($author->author_x)
+                                <a href="{{ $author->author_x }}" target="_blank"
+                                    class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200">
+                                    <flux:icon.twitter
+                                        class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
+                                </a>
+                            @endif
+                            @if ($author->author_github)
+                                <a href="{{ $author->author_github }}" target="_blank"
+                                    class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200">
+                                    <flux:icon.github
+                                        class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
+                                </a>
+                            @endif
+                            @if ($author->author_linkedin)
+                                <a href="{{ $author->author_linkedin }}" target="_blank"
+                                    class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200">
+                                    <flux:icon.linkedin
+                                        class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
+                                </a>
+                            @endif
+                            @if ($author->author_website)
+                                <a href="{{ $author->author_website }}" target="_blank"
+                                    class="social-icon p-2 bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] rounded-lg hover:bg-[var(--color-teal-100)] dark:hover:bg-[var(--color-teal-900)] transition-all duration-200">
+                                    <flux:icon.globe
+                                        class="w-4 h-4 text-[var(--color-zinc-600)] dark:text-[var(--color-zinc-400)]" />
+                                </a>
+                            @endif
                         </div>
 
                         <!-- View Profile Button -->
@@ -143,10 +116,10 @@
                             </button>
                         </div>
                     </div>
-                </template>
+                @endforeach
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <!-- Call to Action -->
     <div class="bg-[var(--color-zinc-100)] dark:bg-[var(--color-zinc-800)] py-16 px-4">

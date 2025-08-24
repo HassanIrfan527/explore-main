@@ -7,8 +7,8 @@
 ### Pages to Create
 - [x] Welcome Page
 - [x] Blogs Page
-- [ ] "Write for us" page
-- [ ] About Page
+- [x] "Write for us" page
+- [x] About Page
 
 ### Welcome Page Components
 - [x] Navbar (Logo, "Our Authors", "About", "Blogs", "Write for Us" button)
@@ -19,8 +19,11 @@
 - [ ] Display all blogs (Title, Summary, Thumbnail)
 
 ### "Write for Us" Page Components
-- [ ] Hero Section (Heading, Paragraph, CTA to form)
-- [ ] Footer and Header
+- [ ] Hero Section (Heading, Paragraph, CTA to form, form would be a pop-up)
+- [x] Footer and Header
 
 ### About Page Components
-- [ ] Simple About Page Content
+- [x] Simple About Page Content
+
+### Testing
+- [] Add Pest tests

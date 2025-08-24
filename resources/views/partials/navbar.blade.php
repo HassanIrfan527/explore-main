@@ -20,16 +20,24 @@
             @endauth
             @guest
 
-                <a class="text-[var(--color-foreground)] text-sm font-medium leading-normal"
-                href="{{ route('authors') }}" wire:navigate>Our Authors</a>
-                <a class="text-[var(--color-foreground)] text-sm font-medium leading-normal" href="#" wire:navigate>About</a>
+                <a class="text-[var(--color-foreground)] text-sm font-medium leading-normal" href="{{ route('authors') }}"
+                    wire:navigate>Our Authors</a>
+                <a class="text-[var(--color-foreground)] text-sm font-medium leading-normal" href="{{ route('about') }}"
+                    wire:navigate>About</a>
             @endguest
         </div>
     </div>
-    <div class="flex flex-1 justify-end">
-        <a href="#"
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--color-accent)] text-white text-sm font-bold leading-normal tracking-[0.015em]">
-            <span class="truncate">Write for Us</span>
-        </a>
-    </div>
+    @guest
+
+        <div class="flex flex-1 justify-end">
+            <a href="{{ route('write-for-us') }}" wire:navigate
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--color-accent)] text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                <span class="truncate">Write for Us</span>
+            </a>
+            <a href="{{ route('login') }}"
+                class="ml-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-blue-500 text-white text-sm font-bold leading-normal tracking-[0.015em]">
+                <span class="truncate">Login</span>
+            </a>
+        </div>
+    @endguest
 </header>
