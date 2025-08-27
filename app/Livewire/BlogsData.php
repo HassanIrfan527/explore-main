@@ -15,7 +15,8 @@ class BlogsData extends Component
 
     public function mount()
     {
-        $this->blogs = Blog::with('author.user', 'category')->get();
+        $this->blogs = Blog::with('author.user')->get();
+        // dd($this->blogs);
     }
 
     public function render()

@@ -16,14 +16,30 @@
 - [x] Footer
 
 ### Blogs Page Components
-- [ ] Display all blogs (Title, Summary, Thumbnail)
+- [x] Display all blogs (Title, Summary, Thumbnail)
 
 ### "Write for Us" Page Components
-- [ ] Hero Section (Heading, Paragraph, CTA to form, form would be a pop-up)
+- [x] A static form
 - [x] Footer and Header
 
 ### About Page Components
 - [x] Simple About Page Content
 
 ### Testing
-- [] Add Pest tests
+- [ ] Add Pest tests
+
+## Version 2 Tasks
+
+### Pages to Create
+
+
+### Welcome Page Components
+
+### Blogs Page Components
+
+### "Write for Us" Page Components
+
+### About Page Components
+
+### Testing
+- [ ] Add Pest tests

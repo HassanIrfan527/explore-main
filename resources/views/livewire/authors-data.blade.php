@@ -109,7 +109,7 @@
                         </div>
 
                         <!-- View Profile Button -->
-                        <div class="mt-6 text-center">
+                        <div class="mt-6 text-center hover:cursor-pointer">
                             <button
                                 class="w-full bg-[var(--color-accent)] hover:bg-[var(--color-teal-600)] text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105">
                                 View Profile
