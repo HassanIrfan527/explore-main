@@ -26,20 +26,29 @@
 - [x] Simple About Page Content
 
 ### Testing
-- [ ] Add Pest tests
+- [x] Add Pest tests
 
 ## Version 2 Tasks
 
 ### Pages to Create
+- [ ] Single Post Page: Detailed view with full content, author info, and share buttons.
 
 
-### Welcome Page Components
+### Backend Tasks
+- [ ] Role-based access for "reader" and "author". Make middlewares for that.
+- [ ] Categories/Tags: Implement the categories/tags functionality.
 
-### Blogs Page Components
+### Frontend Tasks
+- [ ] Add (Livewire + Alpine) Search functionality for Authors as well as Blogs page using Laravel Scout (with Algolia or Meilisearch driver for learning).
+- [ ] Infinite Scroll on Blogs Page: Via Livewire's pagination.
+- [ ] Authors Page Enhancements: Paginate authors, show post counts, link to profiles, send email icon.
+- [ ] Add icons for other social media platforms too
 
-### "Write for Us" Page Components
-
-### About Page Components
+### Performance
+- [ ] Implement Redis' functionality (It doesn't have to be complex, just at least 1 simple Redis functionality)
+- [ ] SEO: Add meta tags, sitemap via packages like spatie/laravel-sitemap.
 
 ### Testing
-- [ ] Add Pest tests
+- [ ] Enhance existing tests
+- [ ] Add new Pest tests for new functionalities
+(Use `laravel/prompts` to enhance testing)
