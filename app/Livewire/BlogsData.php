@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Blog;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -12,13 +13,16 @@ use Livewire\Component;
 class BlogsData extends Component
 {
     public $blogs;
+    public $search = '';
 
     public function mount()
     {
-        $this->blogs = Blog::with('author.user')->get();
-        // dd($this->blogs);
-    }
+        $ttl = 600;
+        $this->blogs = Cache::remember('blogs.all', $ttl, function () {
+            return Blog::with('author.user')->orderBy('created_at', 'desc')->get();
+        });
 
+    }
     public function render()
     {
         return view('livewire.blogs-data');

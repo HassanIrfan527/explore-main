@@ -1,5 +1,5 @@
 {
-    "contextFileName": "GEMINI.md",
+    "contextFileName": ["GEMINI.md", "copilot-instructions.md"],
     "bugCommand": {
         "urlTemplate": "https://github.com/HassanIrfan527/explore-main/issues/new"
     },
