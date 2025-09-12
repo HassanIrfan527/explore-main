@@ -13,7 +13,23 @@ use Livewire\Component;
 class BlogsData extends Component
 {
     public $blogs;
-    public $search = '';
+    public $searchKey = '';
+
+    public function search()
+    {
+        $ttl = 600;
+        $key = $this->searchKey;
+        $this->blogs = Cache::remember('blogs.search.' . md5($key), $ttl, function () use ($key) {
+            return Blog::with('author.user')
+                ->where('title', 'like', '%' . $key . '%')
+                ->orWhere('content', 'like', '%' . $key . '%')
+                ->orWhereHas('author.user', function ($query) use ($key) {
+                    $query->where('name', 'like', '%' . $key . '%');
+                })
+                ->orderBy('created_at', 'desc')
+                ->get();
+        });
+    }
 
     public function mount()
     {

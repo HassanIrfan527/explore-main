@@ -15,7 +15,7 @@
 
             @auth
                 <a class="text-[var(--color-foreground)] text-sm font-medium leading-normal"
-                    href="{{ route('blogs') }}">Blogs</a>
+                    href="{{ route('blogs') }}" wire:navigate>Blogs</a>
 
             @endauth
             @guest
@@ -29,7 +29,7 @@
     </div>
 
     <div class="flex flex-1 justify-end">
-            @guest
+        @guest
             <a href="{{ route('write-for-us') }}" wire:navigate
                 class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[var(--color-accent)] text-white text-sm font-bold leading-normal tracking-[0.015em]">
                 <span class="truncate">Write for Us</span>
@@ -38,12 +38,20 @@
                 class="ml-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-blue-500 text-white text-sm font-bold leading-normal tracking-[0.015em]">
                 <span class="truncate">Login</span>
             </a>
-            @endguest
+        @endguest
 
-            @auth
-            <div class="mr-4 w-1/4">
+        @auth
+            {{-- <div class="mr-4 w-1/4">
                 <flux:input kbd="⌘K" size="lg" icon="magnifying-glass" placeholder="Search..." wire:model.live="search" />
-            </div>
+            </div> --}}
+            {{-- <livewire:blogs.blogs-search> --}}
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit"
+                class="text-[var(--color-foreground)] text-sm font-medium leading-normal bg-transparent border-none p-0 m-0 cursor-pointer">
+                LogOut
+            </button>
+        </form>
             @endauth
-        </div>
+    </div>
 </header>

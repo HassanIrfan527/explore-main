@@ -15,6 +15,10 @@ Route::get('/authors', function () {
     return view('authors');
 })->name('authors');
 
+Route::get('/authors/{author}', function(\App\Models\Author $author){
+
+    return view('author', compact('author'));
+})->name('author.show');
 
 Route::get('/about', function () {
     return view('about');

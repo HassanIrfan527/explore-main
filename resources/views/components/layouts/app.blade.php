@@ -28,9 +28,9 @@
         </button>
     </div> --}}
 
-    @livewireScripts
 
     @include('partials.footer')
 </body>
+@livewireScripts
 
 </html>

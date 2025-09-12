@@ -19,8 +19,10 @@ class AuthorFactory extends Factory
     public function definition(): array
     {
         $user = User::factory()->create();
+        $slug = \Illuminate\Support\Str::slug($user->name);
         return [
             "user_id" => $user->id,
+            "slug" => $slug,
             "author_bio" => $this->faker->paragraph,
             "username" => $this->faker->userName,
             "author_website" => $this->faker->url,

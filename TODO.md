@@ -41,9 +41,9 @@
 ### Frontend Tasks
 - [ ] Add (Livewire + Alpine) Search functionality for Authors as well as Blogs page.
 - [ ] Infinite Scroll on Blogs Page: Via Livewire's pagination.
-- [ ] Authors Page Enhancements: Paginate authors, show post counts, link to profiles, send email icon.
+- [x] Authors Page Enhancements: Paginate authors, show post counts, link to profiles, send email icon.
 - [ ] Add icons for other social media platforms too
-
+- [x] Enhance Pages' designs
 ### Performance
 - [ ] Implement Redis' functionality (It doesn't have to be complex, just at least 1 simple Redis functionality)
 - [ ] SEO: Add meta tags, sitemap via packages like spatie/laravel-sitemap.
