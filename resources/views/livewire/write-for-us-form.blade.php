@@ -1,42 +1,59 @@
-<div class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-white">Write for Us</h2>
-        <form wire:submit.prevent="submit" class="space-y-6">
+<div class="w-full">
+    <div class="w-full rounded-2xl border border-[var(--color-zinc-200)] dark:border-[var(--color-zinc-700)] bg-[var(--color-background)] p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-[var(--color-foreground)]">Submit your pitch</h2>
+
+        <form wire:submit.prevent="submit" class="mt-6 space-y-6">
             @if (session()->has('success'))
-                <div class="p-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                <div class="rounded-xl border border-[var(--color-teal-200)] dark:border-[var(--color-teal-800)] bg-[var(--color-teal-50)] dark:bg-[var(--color-teal-900)] px-4 py-3 text-sm text-[var(--color-teal-700)] dark:text-[var(--color-teal-100)]"
                     role="alert">
                     {{ session('success') }}
                 </div>
             @endif
+
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                <input type="text" id="name" wire:model="name"
-                    class="block w-full px-3 py-2 mt-1 text-gray-900 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                <label for="name" class="block text-sm font-medium text-[var(--color-foreground)]">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    wire:model="name"
+                    class="mt-1 block w-full rounded-lg border border-[var(--color-zinc-200)] bg-[var(--color-background)] px-3 py-2 text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-hidden focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-background)] dark:border-[var(--color-zinc-700)]"
+                />
                 @error('name')
                     <span class="text-sm text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
             <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-                <input type="email" id="email" wire:model="email"
-                    class="block w-full px-3 py-2 mt-1 text-gray-900 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                <label for="email" class="block text-sm font-medium text-[var(--color-foreground)]">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    wire:model="email"
+                    class="mt-1 block w-full rounded-lg border border-[var(--color-zinc-200)] bg-[var(--color-background)] px-3 py-2 text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-hidden focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-background)] dark:border-[var(--color-zinc-700)]"
+                />
                 @error('email')
                     <span class="text-sm text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
             <div>
-                <label for="message"
-                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                <textarea id="message" wire:model="message" rows="4"
-                    class="block w-full px-3 py-2 mt-1 text-gray-900 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"></textarea>
+                <label for="message" class="block text-sm font-medium text-[var(--color-foreground)]">Message</label>
+                <textarea
+                    id="message"
+                    wire:model="message"
+                    rows="4"
+                    class="mt-1 block w-full rounded-lg border border-[var(--color-zinc-200)] bg-[var(--color-background)] px-3 py-2 text-[var(--color-foreground)] focus:border-[var(--color-accent)] focus:outline-hidden focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-background)] dark:border-[var(--color-zinc-700)]"
+                ></textarea>
                 @error('message')
                     <span class="text-sm text-red-500">{{ $message }}</span>
                 @enderror
             </div>
+
             <div>
                 <button type="submit"
-                    class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Submit
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--color-teal-600)] hover:shadow-sm">
+                    <span>Submit</span>
+                    <flux:icon.arrow-up-right class="w-4 h-4" />
                 </button>
             </div>
         </form>
